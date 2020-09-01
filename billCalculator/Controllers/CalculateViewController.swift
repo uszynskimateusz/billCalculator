@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class CalculateViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var billSlider: UISlider!
+    
+    var billValue = "0.0"
+    var personValue = "0.0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +41,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func calculatePressed(_ sender: UIButton) {
         
         if billTextField.text != "" { //it takes only numbers
-            let bill = (Float(billTextField.text!)! * Float(billSlider.value))/100
+            let tipValue = Int(billSlider.value) //tips are only integers \
+            let bill = (Float(billTextField.text!)! * Float(tipValue))/100
             let totalBill = bill + Float(billTextField.text!)!
-            print(totalBill)
+            billValue = String(format: "%.2f", totalBill)
+        }
+        
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+    }
+
+    //MARK: Seque Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.billValue = billValue
+            destinationVC.personValue = "0.0"
         }
     }
-    
 }
 
