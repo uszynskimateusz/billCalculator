@@ -13,6 +13,8 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var billSlider: UISlider!
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var personStepper: UIStepper!
     
     var billValue = "0.0"
     var personValue = "0.0"
@@ -22,8 +24,14 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         billTextField.delegate = self
         billTextField.keyboardType = .numberPad
+        
+        let tip = String(format: "%.0f", billSlider.value)
+        tipLabel.text = "\(tip) %"
     }
-
+    @IBAction func personStepperPressed(_ sender: UIStepper) {
+        personLabel.text = Int(sender.value).description
+    }
+    
     @IBAction func tipSliderChanged(_ sender: UISlider) {
         let tipPercent = String(format: "%.0f", sender.value)
         tipLabel.text = "\(tipPercent) %"
@@ -45,6 +53,9 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
             let bill = (Float(billTextField.text!)! * Float(tipValue))/100
             let totalBill = bill + Float(billTextField.text!)!
             billValue = String(format: "%.2f", totalBill)
+            
+            let perperson = totalBill / Float(personStepper.value)
+            personValue = String(format: "%.2f", perperson)
         }
         
         self.performSegue(withIdentifier: "goToResult", sender: self)
@@ -55,7 +66,8 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
             destinationVC.billValue = billValue
-            destinationVC.personValue = "0.0"
+            destinationVC.personValue = personValue
+   
         }
     }
 }

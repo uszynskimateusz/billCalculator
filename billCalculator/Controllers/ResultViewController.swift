@@ -20,6 +20,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
 
         totalBill.text = billValue
+        personBill.text = personValue
     }
     @IBAction func recalculatePressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
