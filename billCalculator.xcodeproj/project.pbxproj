@@ -14,6 +14,7 @@
 		6972C12C24FD6C2D00C3827B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6972C12B24FD6C2D00C3827B /* Assets.xcassets */; };
 		6972C12F24FD6C2D00C3827B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6972C12D24FD6C2D00C3827B /* LaunchScreen.storyboard */; };
 		69A1E47924FEB8DC001FCB59 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A1E47824FEB8DC001FCB59 /* ResultViewController.swift */; };
+		69E74D3724FEE5250049C235 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E74D3624FEE5250049C235 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6972C12E24FD6C2D00C3827B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6972C13024FD6C2D00C3827B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69A1E47824FEB8DC001FCB59 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		69E74D3624FEE5250049C235 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		69A1E47324FEA8FD001FCB59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				69E74D3624FEE5250049C235 /* CalculatorBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				6972C12724FD6C2B00C3827B /* CalculateViewController.swift in Sources */,
 				6972C12324FD6C2B00C3827B /* AppDelegate.swift in Sources */,
 				6972C12524FD6C2B00C3827B /* SceneDelegate.swift in Sources */,
+				69E74D3724FEE5250049C235 /* CalculatorBrain.swift in Sources */,
 				69A1E47924FEB8DC001FCB59 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

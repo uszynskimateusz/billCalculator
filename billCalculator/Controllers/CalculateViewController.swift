@@ -10,14 +10,13 @@ import UIKit
 
 class CalculateViewController: UIViewController, UITextFieldDelegate {
     
+    var calculateBrain = CalculatorBrain()
+    
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var billSlider: UISlider!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var personStepper: UIStepper!
-    
-    var billValue = "0.0"
-    var personValue = "0.0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +24,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         billTextField.delegate = self
         billTextField.keyboardType = .numberPad
         
-        let tip = String(format: "%.0f", billSlider.value)
-        tipLabel.text = "\(tip) %"
+        tipSliderChanged(billSlider)
     }
     @IBAction func personStepperPressed(_ sender: UIStepper) {
         personLabel.text = Int(sender.value).description
@@ -47,15 +45,8 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Calcualte Methods
     @IBAction func calculatePressed(_ sender: UIButton) {
-        
         if billTextField.text != "" { //it takes only numbers
-            let tipValue = Int(billSlider.value) //tips are only integers \
-            let bill = (Float(billTextField.text!)! * Float(tipValue))/100
-            let totalBill = bill + Float(billTextField.text!)!
-            billValue = String(format: "%.2f", totalBill)
-            
-            let perperson = totalBill / Float(personStepper.value)
-            personValue = String(format: "%.2f", perperson)
+            calculateBrain.calculate(t: billSlider.value, b: billTextField.text!, p: personStepper.value)
         }
         
         self.performSegue(withIdentifier: "goToResult", sender: self)
@@ -65,8 +56,8 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.billValue = billValue
-            destinationVC.personValue = personValue
+            destinationVC.billValue = calculateBrain.getBill()
+            destinationVC.personValue = calculateBrain.getPerson()
    
         }
     }
