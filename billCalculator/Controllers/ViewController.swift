@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var billTextField: UITextField!
+    @IBOutlet weak var billSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +32,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
+    
+    
+    //MARK: Calcualte Methods
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        
+        if billTextField.text != "" { //it takes only numbers
+            let bill = (Float(billTextField.text!)! * Float(billSlider.value))/100
+            let totalBill = bill + Float(billTextField.text!)!
+            print(totalBill)
+        }
+    }
+    
 }
 

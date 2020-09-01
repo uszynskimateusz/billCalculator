@@ -55,6 +55,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6iP-us-JOR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otN-yU-oOB">
                                 <rect key="frame" x="146" y="480" width="21" height="40"/>
@@ -79,6 +82,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="billSlider" destination="Th0-zF-kyb" id="itV-Ln-5DY"/>
                         <outlet property="billTextField" destination="L3M-Dt-LPy" id="Brt-j2-o0l"/>
                         <outlet property="tipLabel" destination="n5W-O2-LVO" id="a9b-Yp-OEk"/>
                     </connections>
@@ -86,6 +90,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7gR-La-Pnn">
+            <objects>
+                <viewController id="Uxy-sh-YCk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUq-MZ-OXD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="D5r-bd-a9u"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R58-G0-O7e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="139"/>
         </scene>
     </scenes>
 </document>
